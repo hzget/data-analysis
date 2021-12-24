@@ -1,0 +1,17 @@
+
+syntax = "proto3";
+package analysis;
+
+option go_package = "github.com/hzget/analysis/analysis";
+
+service DataAnalysis {
+  rpc AnalyzeByAuthor (Author) returns (Status) {}
+}
+
+message Author {
+    string name = 1;
+}
+
+message Status {
+    int32 score = 1;
+}
