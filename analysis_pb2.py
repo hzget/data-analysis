@@ -3,6 +3,7 @@
 # source: analysis.proto
 """Generated protocol buffer code."""
 from google.protobuf import descriptor as _descriptor
+from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
@@ -13,85 +14,15 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor.FileDescriptor(
-  name='analysis.proto',
-  package='analysis',
-  syntax='proto3',
-  serialized_options=b'Z\"github.com/hzget/analysis/analysis',
-  create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0e\x61nalysis.proto\x12\x08\x61nalysis\"\x16\n\x06\x41uthor\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x17\n\x06Status\x12\r\n\x05score\x18\x01 \x01(\x05\x32G\n\x0c\x44\x61taAnalysis\x12\x37\n\x0f\x41nalyzeByAuthor\x12\x10.analysis.Author\x1a\x10.analysis.Status\"\x00\x42$Z\"github.com/hzget/analysis/analysisb\x06proto3'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0e\x61nalysis.proto\x12\x08\x61nalysis\"\x16\n\x06\x41uthor\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x17\n\x06Status\x12\r\n\x05score\x18\x01 \x01(\x05\"\x10\n\x02Id\x12\n\n\x02id\x18\x01 \x01(\x03\"\x1c\n\nPostResult\x12\x0e\n\x06result\x18\x01 \x01(\t\"\x14\n\x04Text\x12\x0c\n\x04text\x18\x01 \x01(\t2\xb7\x01\n\x0c\x44\x61taAnalysis\x12\x37\n\x0f\x41nalyzeByAuthor\x12\x10.analysis.Author\x1a\x10.analysis.Status\"\x00\x12\x37\n\x0f\x41nalyzeByPostId\x12\x0c.analysis.Id\x1a\x14.analysis.PostResult\"\x00\x12\x35\n\x0b\x41nalyzePost\x12\x0e.analysis.Text\x1a\x14.analysis.PostResult\"\x00\x42!Z\x1fgithub.com/hzget/analysisdriverb\x06proto3')
 
 
 
-
-_AUTHOR = _descriptor.Descriptor(
-  name='Author',
-  full_name='analysis.Author',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='analysis.Author.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=28,
-  serialized_end=50,
-)
-
-
-_STATUS = _descriptor.Descriptor(
-  name='Status',
-  full_name='analysis.Status',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='score', full_name='analysis.Status.score', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=52,
-  serialized_end=75,
-)
-
-DESCRIPTOR.message_types_by_name['Author'] = _AUTHOR
-DESCRIPTOR.message_types_by_name['Status'] = _STATUS
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
+_AUTHOR = DESCRIPTOR.message_types_by_name['Author']
+_STATUS = DESCRIPTOR.message_types_by_name['Status']
+_ID = DESCRIPTOR.message_types_by_name['Id']
+_POSTRESULT = DESCRIPTOR.message_types_by_name['PostResult']
+_TEXT = DESCRIPTOR.message_types_by_name['Text']
 Author = _reflection.GeneratedProtocolMessageType('Author', (_message.Message,), {
   'DESCRIPTOR' : _AUTHOR,
   '__module__' : 'analysis_pb2'
@@ -106,32 +37,42 @@ Status = _reflection.GeneratedProtocolMessageType('Status', (_message.Message,),
   })
 _sym_db.RegisterMessage(Status)
 
+Id = _reflection.GeneratedProtocolMessageType('Id', (_message.Message,), {
+  'DESCRIPTOR' : _ID,
+  '__module__' : 'analysis_pb2'
+  # @@protoc_insertion_point(class_scope:analysis.Id)
+  })
+_sym_db.RegisterMessage(Id)
 
-DESCRIPTOR._options = None
+PostResult = _reflection.GeneratedProtocolMessageType('PostResult', (_message.Message,), {
+  'DESCRIPTOR' : _POSTRESULT,
+  '__module__' : 'analysis_pb2'
+  # @@protoc_insertion_point(class_scope:analysis.PostResult)
+  })
+_sym_db.RegisterMessage(PostResult)
 
-_DATAANALYSIS = _descriptor.ServiceDescriptor(
-  name='DataAnalysis',
-  full_name='analysis.DataAnalysis',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=77,
-  serialized_end=148,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='AnalyzeByAuthor',
-    full_name='analysis.DataAnalysis.AnalyzeByAuthor',
-    index=0,
-    containing_service=None,
-    input_type=_AUTHOR,
-    output_type=_STATUS,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-])
-_sym_db.RegisterServiceDescriptor(_DATAANALYSIS)
+Text = _reflection.GeneratedProtocolMessageType('Text', (_message.Message,), {
+  'DESCRIPTOR' : _TEXT,
+  '__module__' : 'analysis_pb2'
+  # @@protoc_insertion_point(class_scope:analysis.Text)
+  })
+_sym_db.RegisterMessage(Text)
 
-DESCRIPTOR.services_by_name['DataAnalysis'] = _DATAANALYSIS
+_DATAANALYSIS = DESCRIPTOR.services_by_name['DataAnalysis']
+if _descriptor._USE_C_DESCRIPTORS == False:
 
+  DESCRIPTOR._options = None
+  DESCRIPTOR._serialized_options = b'Z\037github.com/hzget/analysisdriver'
+  _AUTHOR._serialized_start=28
+  _AUTHOR._serialized_end=50
+  _STATUS._serialized_start=52
+  _STATUS._serialized_end=75
+  _ID._serialized_start=77
+  _ID._serialized_end=93
+  _POSTRESULT._serialized_start=95
+  _POSTRESULT._serialized_end=123
+  _TEXT._serialized_start=125
+  _TEXT._serialized_end=145
+  _DATAANALYSIS._serialized_start=148
+  _DATAANALYSIS._serialized_end=331
 # @@protoc_insertion_point(module_scope)

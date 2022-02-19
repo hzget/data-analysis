@@ -2,10 +2,12 @@
 syntax = "proto3";
 package analysis;
 
-option go_package = "github.com/hzget/analysis/analysis";
+option go_package = "github.com/hzget/analysisdriver";
 
 service DataAnalysis {
   rpc AnalyzeByAuthor (Author) returns (Status) {}
+  rpc AnalyzeByPostId (Id) returns (PostResult) {}
+  rpc AnalyzePost (Text) returns (PostResult) {}
 }
 
 message Author {
@@ -14,4 +16,16 @@ message Author {
 
 message Status {
     int32 score = 1;
+}
+
+message Id {
+    int64 id = 1;
+}
+
+message PostResult {
+    string result = 1;
+}
+
+message Text {
+    string text = 1;
 }

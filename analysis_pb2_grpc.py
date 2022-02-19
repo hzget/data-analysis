@@ -19,12 +19,34 @@ class DataAnalysisStub(object):
                 request_serializer=analysis__pb2.Author.SerializeToString,
                 response_deserializer=analysis__pb2.Status.FromString,
                 )
+        self.AnalyzeByPostId = channel.unary_unary(
+                '/analysis.DataAnalysis/AnalyzeByPostId',
+                request_serializer=analysis__pb2.Id.SerializeToString,
+                response_deserializer=analysis__pb2.PostResult.FromString,
+                )
+        self.AnalyzePost = channel.unary_unary(
+                '/analysis.DataAnalysis/AnalyzePost',
+                request_serializer=analysis__pb2.Text.SerializeToString,
+                response_deserializer=analysis__pb2.PostResult.FromString,
+                )
 
 
 class DataAnalysisServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def AnalyzeByAuthor(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AnalyzeByPostId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AnalyzePost(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -37,6 +59,16 @@ def add_DataAnalysisServicer_to_server(servicer, server):
                     servicer.AnalyzeByAuthor,
                     request_deserializer=analysis__pb2.Author.FromString,
                     response_serializer=analysis__pb2.Status.SerializeToString,
+            ),
+            'AnalyzeByPostId': grpc.unary_unary_rpc_method_handler(
+                    servicer.AnalyzeByPostId,
+                    request_deserializer=analysis__pb2.Id.FromString,
+                    response_serializer=analysis__pb2.PostResult.SerializeToString,
+            ),
+            'AnalyzePost': grpc.unary_unary_rpc_method_handler(
+                    servicer.AnalyzePost,
+                    request_deserializer=analysis__pb2.Text.FromString,
+                    response_serializer=analysis__pb2.PostResult.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -62,5 +94,39 @@ class DataAnalysis(object):
         return grpc.experimental.unary_unary(request, target, '/analysis.DataAnalysis/AnalyzeByAuthor',
             analysis__pb2.Author.SerializeToString,
             analysis__pb2.Status.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AnalyzeByPostId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/analysis.DataAnalysis/AnalyzeByPostId',
+            analysis__pb2.Id.SerializeToString,
+            analysis__pb2.PostResult.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AnalyzePost(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/analysis.DataAnalysis/AnalyzePost',
+            analysis__pb2.Text.SerializeToString,
+            analysis__pb2.PostResult.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
